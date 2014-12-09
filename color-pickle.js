@@ -137,7 +137,6 @@
     picker.hex.value = rgbToHex(rgbArray);
   };
   
-  
  
   /** PICKLE CANVAS PICKER **/
   

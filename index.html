@@ -5,19 +5,21 @@
   <title>color pickle!</title>
   <link rel="icon" href="cool-pics/favicon.png" />
   <style type="text/css">
-    body { text-align: center; font-weight: bold; font-size: 2em; font-family: monospace; }
+    body { text-align: center; font-weight: bold; font-size: 1.5em; font-family: monospace; }
     input,select { text-transform: uppercase; font-size: .8em; font-family: monospace; }
     h1 { position: absolute; left: -9999999px; overflow: hidden; }
     header { margin: 0;}
+    .zazz { font-size: .6em; }
     
     /* color picker */
     #pickle-picker { display: block; margin: 0 auto 20px; }
+    #viewer { background-color: hotpink; }
     .picker { margin: 0 10px 20px; }
     .picker.hex input { width: 100px; }
     .picker.rgb input { width: 60px; }
     
-    footer { margin: 50px; font-size: .8em; }
-    footer a { color: magenta; text-decoration: none; }
+    footer { margin: 20px; font-size: .9em; }
+    footer a { color: hotpink; text-decoration: none; }
   </style>
 </head>
 
@@ -30,6 +32,7 @@
   </header>
 
   <form name="picker">
+    <p><span class="zazz">°º¤ø,¸¸,ø¤º°`°º¤ø</span> PICK THE PICKLE <span class="zazz">ø¤º°`°º¤ø,¸¸,ø¤º°</span></p>
     <canvas id="pickle-picker" width="183" height="200"><img src="cool-pics/pickle.png" /></canvas>
 
     <div class="picker hex">
@@ -49,7 +52,8 @@
   <!-- COLOR PICKLE MARKUP ENDS HERE -->
   
   <footer>
-    another terrible thing<br /> made by <a href="http://github.com/jennschiffer">jenn schiffer</a>
+    <span class="zazz">°º¤ø,¸¸,ø¤º°`°º¤ø</span> another terrible thing <span class="zazz">ø¤º°`°º¤ø,¸¸,ø¤º°</span><br />
+     made by <a href="http://github.com/jennschiffer/color-pickle">jenn schiffer</a> 
   </footer>
 
 <script src="color-pickle.js" type="text/javascript"></script>
