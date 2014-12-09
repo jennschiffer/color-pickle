@@ -101,6 +101,19 @@
       picker.viewer.style.backgroundColor = 'rgb(' + picker.r.value + ',' + picker.g.value + ',' + picker.b.value + ')';
   };
   
+  // update other fields from RGB input
+  var updateFromRGB = function() {
+    // convert r, g, b to hex and concat
+    var hexR = parseInt(picker.r.value).toString(16);
+    var hexG = parseInt(picker.g.value).toString(16);
+    var hexB = parseInt(picker.b.value).toString(16);
+    
+    picker.hex.value = hexR + hexG + hexB;
+    
+    // reset colorname select
+    picker.names.selectedIndex = 0;
+  };
+  
   // returns padded 2-digit hex value
   var getHex = function(dec) {
     var hexVal = parseInt(dec,10).toString(16);
@@ -124,7 +137,7 @@
   
   
   
-  /** EVENT HANDLERS **/
+  /** HEX TEXT PICKER **/
   
   // when hex value changes
   picker.hex.onkeyup = function(e) {
@@ -143,13 +156,18 @@
       picker.b.value = parseInt(currentColor.substr(4,2), 16);
     }
     setViewerRGB();
+    picker.names.selectedIndex = 0;
   }
+  
+  
+  /** RGB TEXT PICKER **/
   
   // when r value changes
   picker.r.onkeyup = function(e) {
     if ( this.value.length > 0 ) {
       picker.hex.value = getHex(this.value) + picker.hex.value.substr(2,4);
       setViewerRGB();
+      updateFromRGB();
     }
   }
   
@@ -158,6 +176,7 @@
     if ( this.value.length > 0 ) {
       picker.hex.value = picker.hex.value.substr(0,2) + getHex(this.value) + picker.hex.value.substr(4,2);
       setViewerRGB();
+      updateFromRGB();
     }
   }
   
@@ -166,11 +185,12 @@
     if ( this.value.length > 0 ) {
       picker.hex.value = picker.hex.value.substr(0,4) + getHex(this.value);
       setViewerRGB();
+      updateFromRGB();
     }
   }
   
   
-  /** SUPER FUN BONUS TIMES **/
+  /** COLOR NAME PICKER **/
   
   // a list of colornames
   var colorNames = ["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige","Bisque","Black","BlanchedAlmond","Blue","BlueViolet","Brown","BurlyWood","CadetBlue","Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan","DarkBlue","DarkCyan","DarkGoldenRod","DarkGray","DarkGrey","DarkGreen","DarkKhaki","DarkMagenta","DarkOliveGreen","Darkorange","DarkOrchid","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGray","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGray","DimGrey","DodgerBlue","FireBrick","FloralWhite","ForestGreen","Fuchsia","Gainsboro","GhostWhite","Gold","GoldenRod","Gray","Grey","Green","GreenYellow","HoneyDew","HotPink","IndianRed","Indigo","Ivory","Khaki","Lavender","LavenderBlush","LawnGreen","LemonChiffon","LightBlue","LightCoral","LightCyan","LightGoldenRodYellow","LightGray","LightGrey","LightGreen","LightPink","LightSalmon","LightSeaGreen","LightSkyBlue","LightSlateGray","LightSlateGrey","LightSteelBlue","LightYellow","Lime","LimeGreen","Linen","Magenta","Maroon","MediumAquaMarine","MediumBlue","MediumOrchid","MediumPurple","MediumSeaGreen","MediumSlateBlue","MediumSpringGreen","MediumTurquoise","MediumVioletRed","MidnightBlue","MintCream","MistyRose","Moccasin","NavajoWhite","Navy","OldLace","Olive","OliveDrab","Orange","OrangeRed","Orchid","PaleGoldenRod","PaleGreen","PaleTurquoise","PaleVioletRed","PapayaWhip","PeachPuff","Peru","Pink","Plum","PowderBlue","Purple","Red","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaGreen","SeaShell","Sienna","Silver","SkyBlue","SlateBlue","SlateGray","SlateGrey","Snow","SpringGreen","SteelBlue","Tan","Teal","Thistle","Tomato","Turquoise","Violet","Wheat","White","WhiteSmoke","Yellow","YellowGreen"];
@@ -200,7 +220,7 @@
   
   
  
-  /** EXTRA SUPER FUN BONUS TIMES **/
+  /** PICKLE CANVAS PICKER **/
   
   // turn the pickle into a canvas
   var pickleCanvas = document.getElementById('pickle-picker');
@@ -239,6 +259,7 @@
     // update viewer color
     setViewerRGB();
   }
+  
 }());
 </script>
 <script src="//pmetrics.performancing.com/js" type="text/javascript"></script>
