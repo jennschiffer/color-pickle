@@ -23,11 +23,7 @@
   // update other fields from RGB input
   var updateFromRGB = function() {
     // convert r, g, b to hex and concat
-    var hexR = parseInt(picker.r.value).toString(16);
-    var hexG = parseInt(picker.g.value).toString(16);
-    var hexB = parseInt(picker.b.value).toString(16);
-    
-    picker.hex.value = hexR + hexG + hexB;
+    picker.hex.value = rgbToHex([parseInt(picker.r.value),parseInt(picker.g.value),parseInt(picker.b.value)]);
     
     // reset colorname select
     picker.names.selectedIndex = 0;
